@@ -1,6 +1,0 @@
--c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\source\inc -I..\Libraries\inc
--I "G:\my share\GT_game\Objects\RTE"
--I C:\Keil_mdk\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
--I C:\Keil_mdk\ARM\CMSIS\Include
--D__UVISION_VERSION="514" -DSTM32F407xx --C99
--o ..\ojb\main.o --omf_browse ..\ojb\main.crf --depend ..\ojb\main.d "main.c"
