@@ -1,0 +1,7 @@
+--cpu Cortex-M4.fp
+"..\ojb\startup_stm32f40_41xxx.o"
+"..\ojb\main.o"
+--library_type=microlib --strict --scatter "..\OJB\GT_game.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\GT_game.map" -o ..\OJB\GT_game.axf

@@ -1,0 +1,6 @@
+Dependencies for Project 'GT_game', Target 'GT_game': (DO NOT MODIFY !)
+F (.\startup_stm32f40_41xxx.s)(0x542E6B02)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "G:\my share\GT_game\Objects\RTE"-I C:\Keil_mdk\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0-I C:\Keil_mdk\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f40_41xxx.lst --xref -o ..\ojb\startup_stm32f40_41xxx.o --depend ..\ojb\startup_stm32f40_41xxx.d)
+F (.\main.c)(0x5D3964B2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\source\inc -I..\Libraries\inc-I "G:\my share\GT_game\Objects\RTE"-I C:\Keil_mdk\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0-I C:\Keil_mdk\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F407xx --C99-o ..\ojb\main.o --omf_browse ..\ojb\main.crf --depend ..\ojb\main.d)
+I (..\Libraries\inc\stm32f4xx.h)(0x5D3964B9)
+F (..\Libraries\inc\stm32f4xx.h)(0x5D3964B9)()
+F (..\DOC\README.txt)(0x5D39605E)()
