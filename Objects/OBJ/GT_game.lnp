@@ -1,0 +1,7 @@
+--cpu Cortex-M4.fp
+".\obj\startup_stm32f40xx.o"
+".\obj\main.o"
+--strict --scatter ".\OBJ\GT_game.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\GT_game.map" -o .\OBJ\GT_game.axf
