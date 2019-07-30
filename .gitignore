@@ -1,4 +1,8 @@
 .DebugConfig
-.Listings
+*.ini
+*.s
+*.bat
+*.uvguix.ASUS
+*.uvoptx
+*.uvprojx
 .OBJ
-Objects/
