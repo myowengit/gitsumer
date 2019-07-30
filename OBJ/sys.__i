@@ -1,7 +1,0 @@
--c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\HARDWARE\LED -I..\HARDWARE\BEEP -I..\HARDWARE\KEY
--I "G:\my share\GT_game\USER\RTE"
--I C:\Keil_mdk\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
--I C:\Keil_mdk\ARM\CMSIS\Include
--I C:\Keil_mdk\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Device\Include
--D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx --C99
--o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d "..\SYSTEM\sys\sys.c"
