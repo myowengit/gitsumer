@@ -575,6 +575,7 @@ static void set_mand_speed(void)
 	supplement_fun(6, num_buff);
 	eeprom_write(10, num_buff, 6);
 	clean_array(num_buff);					//到此num_buff使用周期完成,进行销毁清除操作
+	grid_counter = 0;
 }
 /*设置并存储Kp参数*/
 static void set_mand_Kp(void)
@@ -583,6 +584,7 @@ static void set_mand_Kp(void)
 	supplement_fun(7, num_buff);
 	eeprom_write(30, num_buff, 7);
 	clean_array(num_buff);					//到此num_buff使用周期完成,进行销毁清除操作
+	grid_counter = 0;
 }
 /*设置并存储Ki参数*/
 static void set_mand_Ki(void)
@@ -591,6 +593,7 @@ static void set_mand_Ki(void)
 	supplement_fun(7, num_buff);
 	eeprom_write(40, num_buff, 7);
 	clean_array(num_buff);					//到此num_buff使用周期完成,进行销毁清除操作
+	grid_counter = 0;
 }
 /*设置并存储Kd参数*/
 static void set_mand_Kd(void)
@@ -599,6 +602,7 @@ static void set_mand_Kd(void)
 	supplement_fun(7, num_buff);
 	eeprom_write(50, num_buff, 7);
 	clean_array(num_buff);                  //到此num_buff使用周期完成,进行销毁清除操作
+	grid_counter = 0;
 }
 /*设置并存储角度参数*/
 static void set_mand_angle(void)
@@ -608,6 +612,7 @@ static void set_mand_angle(void)
 	eeprom_write(20, num_buff, 6);
     grid_counter = 0;                       //重新设置,计数清零
 	clean_array(num_buff);					//到此num_buff使用周期完成,进行销毁清除操作
+	grid_counter = 0;
 }
 
 /*将获取到的数据传输给对应参数变量*/
@@ -644,12 +649,13 @@ static void chang_mode_job(void)
             mand_temp = set_speed;	//保存之前的设定转速
             mand_flag = 1;
         }
-		turn_angle_start();
-		set_speed = 40;		//更新转速设定值
+		PWM_VAL = 280;
+		set_speed = 36;		//更新转速设定值
+		grid_counter = 0;
 	}
 	else
 	{
-        pwm_num = 200;              //保证能转
+        pwm_num = 250;              //保证能转
 		set_speed = mand_temp;
 		mand_temp = 0;mand_flag = 0;				//恢复设定转速值,清零暂存值
 	}
@@ -661,9 +667,10 @@ static void moter_control_key(void)
     switch(key_t.key_used_value)
     {
     	case 1:chang_mode_job();break;			//第一个按键在非调参状态用来切换转角度,还是转指定速度
-        case 13:PEout(0) = 1;PEout(1) = 0;break;            //正转
-        case 14:PEout(0) = 0;PEout(1) = 1;break;            //反转
-        case 15:PEout(0) = 0;PEout(1) = 0;break;            //停止
+        case 13:PEout(0) = 1;PEout(1) = 0;grid_counter = 0;break;            //正转
+        case 14:PEout(0) = 0;PEout(1) = 1;grid_counter = 0;break;            //反转
+        case 15:PEout(0) = 0;PEout(1) = 0;grid_counter = 0;;break;            //停止
+        default :break;
     }
     key_t.key_used_value = 0;                       //检测到的键值清零
 }

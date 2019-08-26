@@ -28,7 +28,6 @@ void quick_sort(int *a, int low, int high);
 int find_mode_number(int *arr, int len);
 void get_motor_speed(void);
 void Motor_pulse_get(void);
-void turn_angle_start(void);
 void get_moter_angle(void);
 
 

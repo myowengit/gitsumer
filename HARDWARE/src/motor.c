@@ -164,8 +164,8 @@ void get_motor_speed(void)
             flag = 0;
             pid.ActualSpeed = 0;
         }
+		PWM_Send_Out();
         if(set_angle_falg) get_moter_angle();
-        PWM_Send_Out();
         over_time_counter = 0;
     }
     else
@@ -185,19 +185,8 @@ void get_motor_speed(void)
 void get_moter_angle(void)
 {
     uint16_t counter = 0;
-    uint8_t flag = 0;               //标志,第一次获取设置速度
     int grid_counter_buff = 0;
     
-    if(!flag)
-    {
-       set_speed = 30;
-       turn_angle_start();
-       flag = 1;
-    }
-    if(grid_counter > 300)
-    {
-        grid_counter = -grid_counter;
-    }
     grid_counter_buff = grid_counter;
     counter = (uint16_t)((set_angle + 1)/1.1); 
     
@@ -208,7 +197,6 @@ void get_moter_angle(void)
     if((counter - grid_counter < 20) && (grid_counter - counter < 20))
     {
         PEout(0) = 0;PEout(1) = 0;
-        flag = 0;
     }
     else if(grid_counter > counter)
     {
@@ -217,11 +205,4 @@ void get_moter_angle(void)
         grid_counter = -grid_counter;
     }
 }
-
-/*指定转动角度时特殊的启动方法*/
-void turn_angle_start(void)
-{
-	PWM_VAL = 280;				//设置最小起转PWM对应值
-}
-
 

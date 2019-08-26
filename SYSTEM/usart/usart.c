@@ -128,6 +128,7 @@ void turn_com_stm(void)
 	}
 	rx_counter = 0;	    //计数值清空
 	clean_array(USART_RX_BUF);			//串口接收缓冲区清空
+	grid_counter = 0;
     USART_RX_STA = 0;                   //标志清零
 }
 
